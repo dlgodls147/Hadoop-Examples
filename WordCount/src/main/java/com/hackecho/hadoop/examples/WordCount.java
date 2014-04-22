@@ -34,6 +34,7 @@ public class WordCount {
 		
 		job.setJarByClass(WordCount.class);
 		
-		job.submit();
+		//job.submit();
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
 	}
 }
