@@ -15,6 +15,11 @@ public class WordReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
 		int wordCount = 0;
 		Iterator<IntWritable> it = values.iterator();
 		
+		/* actually here we don't have to use iterator
+		 * for (IntWritable val : values) {
+		 *     wordCount += val.get();
+		 * }
+		 */
 		while (it.hasNext()) {
 			wordCount += it.next().get();
 		}
