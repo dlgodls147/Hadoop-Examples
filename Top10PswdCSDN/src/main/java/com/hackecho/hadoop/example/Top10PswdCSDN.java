@@ -21,6 +21,7 @@ public class Top10PswdCSDN {
 			System.err.println("Usage: Top10PswdCSDN <in> <out>");
 			System.exit(2);
 		}
+		
 		Job job = Job.getInstance(conf, "csdn");
 		job.setJarByClass(Top10PswdCSDN.class);
 		job.setMapperClass(CountMapper.class);
@@ -31,8 +32,7 @@ public class Top10PswdCSDN {
 		job.setOutputValueClass(IntWritable.class);
 
 		FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-		Path tempDir = new Path("csdn-temp-"
-				+ Integer.toString(new Random().nextInt(Integer.MAX_VALUE)));
+		Path tempDir = new Path("csdn-temp-" + Integer.toString(new Random().nextInt(Integer.MAX_VALUE)));
 		FileOutputFormat.setOutputPath(job, tempDir);
 
 		if (job.waitForCompletion(true)) {

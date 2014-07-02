@@ -1,4 +1,4 @@
-package com.hackecho.hadoop.examples;
+package edu.missouri.hadoop;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -16,8 +16,6 @@ public class WordMapper extends Mapper<Object, Text, Text, IntWritable> {
 		StringTokenizer wordList = new StringTokenizer(value.toString());
 		while (wordList.hasMoreTokens()) {
 			word.set(wordList.nextToken());
-			
-			// key is password, one is int 1
 			context.write(word, one);
 		}
 	}

@@ -1,4 +1,4 @@
-package com.hackecho.hadoop.examples;
+package edu.missouri.hadoop;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.mapreduce.Job;
@@ -20,6 +20,7 @@ public class WordCount {
 		}
 		
 		Job job = Job.getInstance(new Configuration());
+		
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 		
@@ -31,8 +32,6 @@ public class WordCount {
 		
 		FileInputFormat.setInputPaths(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
-		
-		job.setJarByClass(WordCount.class);
 		
 		//job.submit();
 		System.exit(job.waitForCompletion(true) ? 0 : 1);

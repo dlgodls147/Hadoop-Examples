@@ -1,4 +1,4 @@
-package com.hackecho.hadoop.examples;
+package edu.missouri.hadoop;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
