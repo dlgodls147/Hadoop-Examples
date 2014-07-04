@@ -27,6 +27,7 @@ public class Top10PswdCSDN {
 		job.setMapperClass(CountMapper.class);
 		job.setCombinerClass(CountReducer.class);
 		job.setReducerClass(CountReducer.class);
+		job.setNumReduceTasks(1);
 
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
@@ -48,6 +49,8 @@ public class Top10PswdCSDN {
 			sortJob.setOutputValueClass(Text.class);
 
 			sortJob.setSortComparatorClass(IntDecreasingComparator.class);
+			
+			sortJob.setNumReduceTasks(1);
 
 			FileSystem.get(conf).deleteOnExit(tempDir);
 
